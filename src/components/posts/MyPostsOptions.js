@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { deletePost, deletePostLike } from "../../services/postService"
 import { deletePostComment, deletePostCommentLike, getCommentLikesByCommentId } from "../../services/commentService"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const MyPostsOptions = ({ post }) => {
     const [postLikes, setPostLikes] = useState([])
     const [postComments, setPostComments] = useState([])
     const [postCommentLikes, setPostCommentLikes] = useState([])
+
+    let navigate = useNavigate()
 
     useEffect(() => {
         setPostLikes(post.postLikes)
@@ -34,21 +36,22 @@ export const MyPostsOptions = ({ post }) => {
 
                     {/* Edit Button */}
                     <li>
-                        <Link 
+                        <a
                             className="dropdown-item"
                             href="#"
-                            to={`/post_editor/${post.id}`}
+                            onClick={() => {
+                                navigate(`/post_editor/${post.id}`)
+                            }}
                         >
                             Edit
-                        </Link>
+                        </a>
                     </li>
                     
                     {/* Delete Button */}
                     <li>
-                        <Link
+                        <a
                             className="dropdown-item" 
                             href="#"
-                            to="/"
                             onClick={(event) => {
                                 event.preventDefault();
 
@@ -68,12 +71,13 @@ export const MyPostsOptions = ({ post }) => {
                                         return deletePost(post.id)
                                     })
                                     .then(() => {
-                                        console.log('Post and all associated data successfully deleted!');
+                                        console.log('Post and all associated data successfully deleted!')
+                                        navigate("/")
                                     })
                             }}
                         >
                             Delete
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </div>

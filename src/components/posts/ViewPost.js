@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { getPostById } from "../../services/postService"
 import "./ViewPost.css"
 import { GetPostComments } from "./GetPostComments"
@@ -9,6 +9,8 @@ export const ViewPost = ({ currentUser }) => {
     const [post, setPost] = useState({})
     const [currentUserIsAuthor, setCurrentUserIsAuthor] = useState(false)
     const {postId} = useParams()
+
+    const navigate = useNavigate()
 
     // Sets the current post
     useEffect(() => {
@@ -66,13 +68,11 @@ export const ViewPost = ({ currentUser }) => {
             {/* Post Footer */}
             <footer className="post-footer">
                 {currentUserIsAuthor && (
-                    <Link to={`/post_editor/${postId}`}>
-                        <button className="post-edit-btn" onClick={() => {
-                            
-                        }}>
-                            Edit
-                        </button>
-                    </Link>
+                    <button className="post-edit-btn" onClick={() => {
+                        navigate(`/post_editor/${postId}`)
+                    }}>
+                        Edit
+                    </button>
                 )}
                 {!currentUserIsAuthor && (
                     <PostLikeButton postId={post.id} postLikes={post.postLikes} userId={currentUser.id} />

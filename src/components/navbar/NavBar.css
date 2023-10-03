@@ -1,0 +1,57 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2C3E50;
+    /* Deep Navy */
+    padding: 1rem;
+    box-shadow: 0px 3px 10px 0px rgba(44, 62, 80, 0.2);
+    /* Slight Shadow for depth */
+    font-family: 'Arial', sans-serif;
+    /* Consistent Font Family */
+}
+
+.navbar-item {
+    list-style-type: none;
+    /* Removes Bullet Points */
+}
+
+.navbar-item a {
+    text-decoration: none;
+    /* Removes Underline */
+    color: #ECF0F1;
+    /* Off-White */
+    font-size: 1.1rem;
+    /* Consistent Font Size */
+    font-weight: 600;
+    /* Semi-Bold Font */
+    padding: 0.5rem 1rem;
+    /* Vertical & Horizontal Padding */
+    border-radius: 5px;
+    /* Rounded Corners */
+    transition: background-color 0.3s ease-in-out;
+    /* Smooth Transition */
+}
+
+.navbar-item a:hover {
+    background-color: #ECF0F1;
+    /* Off-White */
+    color: #2C3E50;
+    /* Deep Navy */
+}
+
+/* Specific styling for the Logout link as it does not have the 'navbar-item' class */
+.navbar li:last-child a {
+    background-color: #E74C3C;
+    /* Red */
+    color: #ECF0F1;
+    /* Off-White */
+}
+
+.navbar li:last-child a:hover {
+    background-color: #ECF0F1;
+    /* Off-White */
+    color: #E74C3C;
+    /* Red */
+}

@@ -1,0 +1,81 @@
+.new-post-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.new-post-header h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+.new-post-main {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-creator-top,
+.post-creator-middle,
+.post-creator-bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    width: calc(100% - 22px);
+    /* -22px to compensate for padding */
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.post-title::placeholder {
+    color: #aaa;
+}
+
+.post-creator-top button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.post-body {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    /* Allows vertical resizing of the textarea */
+}
+
+.post-body::placeholder {
+    color: #aaa;
+}
+
+.post-creator-bottom button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.post-creator-bottom button:last-child {
+    background-color: #d9534f;
+    /* Different color for the cancel button, adjust as needed */
+}

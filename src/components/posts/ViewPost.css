@@ -1,0 +1,123 @@
+/* Container Style */
+.view-post-container {
+    width: 80%;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Style */
+.post-header h1 {
+    text-align: center;
+    color: #333333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Main Section Style */
+.post-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-creator-container,
+.post-body-container,
+.post-comments-container {
+    width: 30%;
+    padding: 10px;
+}
+
+.creator-profile-picture img {
+    width: 20%;
+}
+
+/* If you want the width of post-body-container to be larger, you can adjust the width of these containers. */
+
+.post-creator-container h3,
+.post-creator-container h4 {
+    margin-bottom: 5px;
+    color: #666666;
+}
+
+.post-body-container {
+    color: #444444;
+    text-align: justify;
+}
+
+.post-comments-container {
+    overflow-y: auto;
+    max-height: 500px;
+    /* You can adjust this value as needed */
+}
+
+/* Comment Style */
+.comment-container {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.comment-header,
+.comment-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-like-btn {
+    background: none;
+    border: none;
+}
+
+.comment-creator,
+.comment-date,
+.comment-body {
+    color: #555555;
+}
+
+/* Footer Style */
+.post-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button Styles */
+.post-edit-btn,
+.pst-like-btn,
+.post-comment-btn, 
+.post-return-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    /* Adjust this color to match the Navbar */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-edit-btn:hover,
+.pst-like-btn:hover,
+.post-comment-btn:hover,
+.post-return-btn:hover {
+    background-color: #45a049;
+}
+
+/* Additional Responsive Style */
+@media (max-width: 960px) {
+    .post-main {
+        flex-direction: column;
+    }
+
+    .post-creator-container,
+    .post-body-container,
+    .post-comments-container {
+        width: 100%;
+    }
+}

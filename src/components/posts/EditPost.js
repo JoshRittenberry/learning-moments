@@ -53,7 +53,7 @@ export const EditPost = ({ currentUser }) => {
                             type="text"
                             placeholder="Post Title"
                             required
-                            value={postValues.title}
+                            value={postValues?.title}
                             onChange={(event) => {
                                 const copy = { ...postValues }
                                 copy.title = event.target.value
@@ -72,7 +72,7 @@ export const EditPost = ({ currentUser }) => {
                             type="text"
                             placeholder="Post Body"
                             required
-                            value={postValues.body}
+                            value={postValues?.body}
                             onChange={(event) => {
                                 const copy = { ...postValues }
                                 copy.body = event.target.value
@@ -85,7 +85,7 @@ export const EditPost = ({ currentUser }) => {
 
                 {/* New Post Footer/Buttons */}
                 <footer className="post-creator-bottom">
-                    <EditPostSaveBtn postValues={postValues} setPostValues={setPostValues} />
+                    <EditPostSaveBtn postValues={postValues} setPostValues={setPostValues} postId={postId}/>
                     <button>Cancel</button>
                 </footer>
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { deletePost, deletePostLike } from "../../services/postService"
-import { deletePostComment, deletePostCommentLike, getCommentLikesByCommentId } from "../../services/commentService"
-import { Link, useNavigate } from "react-router-dom"
+import { deletePost } from "../../services/postService"
+import { getCommentLikesByCommentId } from "../../services/commentService"
+import { useNavigate } from "react-router-dom"
 
 export const MyPostsOptions = ({ post }) => {
     const [postLikes, setPostLikes] = useState([])
@@ -53,23 +53,8 @@ export const MyPostsOptions = ({ post }) => {
                             className="dropdown-item" 
                             href="#"
                             onClick={(event) => {
-                                event.preventDefault();
-
-                                // Delete postLikes associated with post
-                                const postLikeDeletions = postLikes.map(postLike => deletePostLike(postLike.id));
-
-                                // Delete commentLikes associated with post's comments
-                                const postCommentLikeDeletions = postCommentLikes.map(postCommentLike => deletePostCommentLike(postCommentLike.id));
-
-                                // Deletes comments associated with post
-                                const postCommentDeletions = postComments.map(postComment => deletePostComment(postComment.id));
-
-                                // Wait for all postLikes, postCommentLikes, and postComments to be deleted first
-                                Promise.all([...postLikeDeletions, ...postCommentLikeDeletions, ...postCommentDeletions])
-                                    .then(() => {
-                                        // After all associated data has been deleted, delete the post
-                                        return deletePost(post.id)
-                                    })
+                                event.preventDefault()
+                                deletePost(post.id)
                                     .then(() => {
                                         console.log('Post and all associated data successfully deleted!')
                                         navigate("/")

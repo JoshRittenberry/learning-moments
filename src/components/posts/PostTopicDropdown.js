@@ -12,6 +12,16 @@ export const PostTopicDropdown = ({ setPostValues, postValues }) => {
         })
     }, [])
 
+    useEffect(() => {
+        if (postValues.topicId != 0) {
+            getPostTopics().then(data => {
+                const topicsArray = data
+                const currentTopic = topicsArray.find(topic => topic.id === postValues.topicId)
+                setTopicSelectionText(currentTopic?.name)
+            })
+        }
+    }, [postValues])
+
     return (
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +35,6 @@ export const PostTopicDropdown = ({ setPostValues, postValues }) => {
                                     const copy = {...postValues}
                                     copy.topicId = topicObj.id
                                     setPostValues(copy)
-                                    setTopicSelectionText(topicObj.name)
                                 }}>
                                     {topicObj.name}
                                 </a>

@@ -11,11 +11,15 @@ export const AllPosts = ({ currentUser }) => {
     const [searchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
+        getPosts()
+    }, [])
+
+    const getPosts = () => {
         getAllPosts().then(postArray => {
             setAllPosts(postArray)
             setShowPosts(postArray)
         })
-    }, [])
+    }
 
     useEffect(() => {
         const filterPostsBySearch = () => {

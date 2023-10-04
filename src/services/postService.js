@@ -59,7 +59,23 @@ export const createNewPost = (postObj) => {
             },
             body: JSON.stringify(postObj),
         }).then(() => {
-            console.log(`postLike Added`)
+            console.log(`post Added`)
+    })
+}
+
+export const editPost = (postObj, postId) => {
+    return fetch(`http://localhost:8088/posts/${postId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            topicId: postObj.topicId,
+            title: postObj.title,
+            body: postObj.body,
+        }),
+    }).then(() => {
+        console.log(`post #${postId} Updated`)
     })
 }
 

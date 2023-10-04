@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom"
-import { createNewPost } from "../../services/postService"
+import { useNavigate } from "react-router-dom"
+import { editPost } from "../../services/postService"
 
-export const EditPostSaveBtn = ({ postValues, setPostValues }) => {
+export const EditPostSaveBtn = ({ postValues, setPostValues, postId }) => {
     const navigate = useNavigate()
 
     return (
@@ -25,7 +25,7 @@ export const EditPostSaveBtn = ({ postValues, setPostValues }) => {
                 copy.date = `${month}-${day}-${year}T${hours}:${minutes}:${seconds}`
 
                 setPostValues(copy)
-                createNewPost(postValues)
+                editPost(postValues, postId)
                 navigate("/")
             }
         }}>

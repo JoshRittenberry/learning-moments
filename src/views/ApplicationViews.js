@@ -19,7 +19,7 @@ export const ApplicationViews = () => {
 
     return (
         <Routes>
-            <Route 
+            <Route
                 path="/"
                 element={
                     <>
@@ -30,11 +30,11 @@ export const ApplicationViews = () => {
             >
                 <Route index element={<AllPosts currentUser={currentUser} />} />
                 <Route path="view_post">
-                    <Route path=":postId" element={<ViewPost currentUser={currentUser}/>} />
+                    <Route path=":postId" element={<ViewPost currentUser={currentUser} />} />
                 </Route>
                 <Route path="post_editor">
                     <Route index element={<CreatePost currentUser={currentUser} />} />
-                    <Route path=":postId" element={<EditPost currentUser={currentUser}/>} />
+                    <Route path=":postId" element={<EditPost currentUser={currentUser} />} />
                 </Route>
                 <Route path="my_posts" element={<MyPosts currentUser={currentUser} />} />
             </Route>

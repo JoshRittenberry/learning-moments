@@ -1,9 +1,9 @@
 export const getAllPosts = () => {
-    return fetch("http://localhost:8088/posts?&_embed=postLikes&_embed=comments&_expand=topic").then(res => res.json())
+    return fetch("http://localhost:8088/posts?&_embed=postLikes&_embed=comments&_expand=user&_expand=topic").then(res => res.json())
 }
 
 export const getAllUserPosts = (id) => {
-    return fetch(`http://localhost:8088/posts?userId=${id}&_embed=postLikes&_embed=comments&_expand=topic`).then(res => res.json())
+    return fetch(`http://localhost:8088/posts?userId=${id}&_embed=postLikes&_embed=comments&_expand=user&_expand=topic`).then(res => res.json())
 }
 
 export const getPostById = (id) => {

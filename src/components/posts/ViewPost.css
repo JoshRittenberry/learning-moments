@@ -30,7 +30,9 @@
 }
 
 .creator-profile-picture img {
-    width: 20%;
+    display: block;
+    border-radius: 10px;
+    width: 50%;
 }
 
 /* If you want the width of post-body-container to be larger, you can adjust the width of these containers. */

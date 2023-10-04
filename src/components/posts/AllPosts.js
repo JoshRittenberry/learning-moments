@@ -23,7 +23,7 @@ export const AllPosts = ({ currentUser }) => {
 
     useEffect(() => {
         const filterPostsBySearch = () => {
-            const filteredPosts = showPosts.filter(post => 
+            const filteredPosts = showPosts.filter(post =>
                 post.title.toLowerCase().includes(searchTerm.toLowerCase()))
             setShowPosts(filteredPosts)
 
@@ -46,11 +46,11 @@ export const AllPosts = ({ currentUser }) => {
         <section className="posts-container">
             <header className="posts-header">
                 <PostFilter filterPostsByTopic={filterPostsByTopic} />
-                <PostSeach setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+                <PostSeach setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             </header>
             <article className="posts">
                 {showPosts.map(postObj => {
-                    return <Post post={postObj} currentUserId={currentUser.id} key={postObj.id}/>
+                    return <Post post={postObj} currentUserId={currentUser.id} key={postObj.id} />
                 })}
             </article>
         </section>

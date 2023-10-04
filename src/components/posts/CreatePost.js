@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./CreatePost.css"
 import { PostTopicDropdown } from "./PostTopicDropdown"
 import { CreatePostSaveBtn } from "./CreatePostSaveBtn"
+import { useNavigate } from "react-router-dom"
 
 export const CreatePost = ({ currentUser }) => {
     const [postValues, setPostValues] = useState({
@@ -11,6 +12,8 @@ export const CreatePost = ({ currentUser }) => {
         body: "",
         date: ""
     })
+
+    const navigate = useNavigate()
 
     return (
         <div className="new-post-container">
@@ -65,7 +68,9 @@ export const CreatePost = ({ currentUser }) => {
                 {/* New Post Footer/Buttons */}
                 <footer className="post-creator-bottom">
                     <CreatePostSaveBtn postValues={postValues} setPostValues={setPostValues} />
-                    <button>Cancel</button>
+                    <button className="post-cancel-btn" onClick={() => {
+                        navigate("/")
+                    }}>Cancel</button>
                 </footer>
 
             </section>

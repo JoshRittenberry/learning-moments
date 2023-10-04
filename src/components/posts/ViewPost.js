@@ -42,12 +42,12 @@ export const ViewPost = ({ currentUser }) => {
                 {/* Post Header */}
                 <div className="post-creator-container">
                     <div className="creator-profile-picture">
-                        <img src="https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0="></img>
+                        <img src={post.user?.pictureUrl}></img>
                     </div>
                     <h3>{post.user?.firstName} {post.user?.lastName}</h3>
-                    <h4>Topic: {post.topic?.name}</h4>
-                    <h4>Date Posted: {post.date}</h4>
-                    <h4>Total Post Likes: {post.postLikes?.length}</h4>
+                    <h5>Topic: {post.topic?.name}</h5>
+                    <h5>Date Posted: {post.date}</h5>
+                    <h5>Total Post Likes: {post.postLikes?.length}</h5>
                 </div>
 
                 {/* Post Body */}
@@ -78,7 +78,10 @@ export const ViewPost = ({ currentUser }) => {
                     <PostLikeButton postId={post.id} postLikes={post.postLikes} userId={currentUser.id} />
                 )}
                 <button className="post-comment-btn">Comment</button>
-                <button className="post-return-btn">Return</button>
+                <button className="post-return-btn" onClick={() => {
+                    {currentUserIsAuthor && (navigate("/my_posts"))}
+                    {!currentUserIsAuthor && (navigate("/"))}
+                }}>Return</button>
             </footer>
         </div>
     )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./CreatePost.css"
 import { PostTopicDropdown } from "./PostTopicDropdown"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getPostById } from "../../services/postService"
 import { EditPostSaveBtn } from "./EditPostSaveBtn"
 
@@ -16,6 +16,7 @@ export const EditPost = ({ currentUser }) => {
     })
 
     const {postId} = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getPostById(postId).then(data => {
@@ -86,7 +87,9 @@ export const EditPost = ({ currentUser }) => {
                 {/* New Post Footer/Buttons */}
                 <footer className="post-creator-bottom">
                     <EditPostSaveBtn postValues={postValues} setPostValues={setPostValues} postId={postId}/>
-                    <button>Cancel</button>
+                    <button className="post-cancel-btn" onClick={() => {
+                        navigate("/my_posts")
+                    }}>Cancel</button>
                 </footer>
 
             </section>

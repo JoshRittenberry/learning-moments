@@ -1,0 +1,69 @@
+Base Styling body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.post-creator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    width: 25%;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px #aaa;
+}
+
+/* Header Styling */
+.posts-header {
+    background: #45a049;
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    box-shadow: 0px 4px 2px -2px gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.posts-header h1 {
+    display: inline-block;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Article & Post Styling */
+.profile-posts {
+    width: 60;
+    padding: 20px;
+}
+
+.post-preview {
+    background: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px #aaa;
+}
+
+.post-preview-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post h5 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.post h6 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666;
+}

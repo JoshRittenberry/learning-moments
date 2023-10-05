@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react"
-import { deletePost } from "../../services/postService"
-import { getCommentLikesByCommentId } from "../../services/commentService"
+import { deletePost } from "../../../services/postService"
+import { getCommentLikesByCommentId } from "../../../services/commentService"
 import { useNavigate } from "react-router-dom"
 
 export const MyPostsOptions = ({ post }) => {
-    const [postLikes, setPostLikes] = useState([])
-    const [postComments, setPostComments] = useState([])
-    const [postCommentLikes, setPostCommentLikes] = useState([])
+    // const [postLikes, setPostLikes] = useState([])
+    // const [postComments, setPostComments] = useState([])
+    // const [postCommentLikes, setPostCommentLikes] = useState([])
 
     let navigate = useNavigate()
 
-    useEffect(() => {
-        setPostLikes(post.postLikes)
-        setPostComments(post.comments)
+    // useEffect(() => {
+    //     setPostLikes(post.postLikes)
+    //     setPostComments(post.comments)
 
-        // Use Promise.all to handle an array of promises
-        Promise.all(post.comments.map(postComment => {
-            return getCommentLikesByCommentId(postComment.id);
-        }))
-            .then(allCommentLikesArrays => {
-                // Flatten the array of arrays into a single array
-                const flattenedCommentLikes = [].concat.apply([], allCommentLikesArrays);
-                setPostCommentLikes(flattenedCommentLikes);
-            });
+    //     // Use Promise.all to handle an array of promises
+    //     Promise.all(post.comments.map(postComment => {
+    //         return getCommentLikesByCommentId(postComment.id);
+    //     }))
+    //         .then(allCommentLikesArrays => {
+    //             // Flatten the array of arrays into a single array
+    //             const flattenedCommentLikes = [].concat.apply([], allCommentLikesArrays);
+    //             setPostCommentLikes(flattenedCommentLikes);
+    //         });
 
-    }, [post])
+    // }, [post])
 
     return (
         <div className="dropdown">

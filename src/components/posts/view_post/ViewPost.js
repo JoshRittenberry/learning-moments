@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { getPostById } from "../../services/postService"
+import { getPostById, getPostLikesByPostId } from "../../../services/postService"
 import "./ViewPost.css"
-import { GetPostComments } from "./GetPostComments"
-import { PostLikeButton } from "./PostLikeButton"
+import { GetPostComments } from "../GetPostComments"
+import { PostLikeButton } from "../PostLikeButton"
 
 export const ViewPost = ({ currentUser }) => {
     const [post, setPost] = useState({})
     const [currentUserIsAuthor, setCurrentUserIsAuthor] = useState(false)
+    const [postLikesAmount, setPostLikesAmount] = useState(0)
+    const [postLikeStatus, setPostLikeStatus] = useState(false)
+
     const {postId} = useParams()
 
     const navigate = useNavigate()
@@ -18,7 +21,10 @@ export const ViewPost = ({ currentUser }) => {
             const postObj = data[0]
             setPost(postObj)
         })
-    }, [postId])
+        getPostLikesByPostId(postId).then(data => {
+            setPostLikesAmount(data.length)
+        })
+    }, [postId, postLikeStatus])
 
     // Sets a boolean to tell if the current user is or isn't the author of the viewed post
     useEffect(() => {
@@ -47,7 +53,7 @@ export const ViewPost = ({ currentUser }) => {
                     <h3>{post.user?.firstName} {post.user?.lastName}</h3>
                     <h5>Topic: {post.topic?.name}</h5>
                     <h5>Date Posted: {post.date}</h5>
-                    <h5>Total Post Likes: {post.postLikes?.length}</h5>
+                    <h5>Total Post Likes: {postLikesAmount}</h5>
                 </div>
 
                 {/* Post Body */}
@@ -59,7 +65,11 @@ export const ViewPost = ({ currentUser }) => {
                 <div className="post-comments-container">
                     {post.comments?.map(commentObj => {
                         return(
-                            <GetPostComments commentId={commentObj.id} userId={currentUser.id} key={commentObj.id}/>
+                            <GetPostComments
+                                commentId={commentObj.id}
+                                userId={currentUser.id}
+                                key={commentObj.id}
+                            />
                         )
                     })}
                 </div>
@@ -75,7 +85,13 @@ export const ViewPost = ({ currentUser }) => {
                     </button>
                 )}
                 {!currentUserIsAuthor && (
-                    <PostLikeButton postId={post.id} postLikes={post.postLikes} userId={currentUser.id} />
+                    <PostLikeButton 
+                        postId={post.id}
+                        postLikes={post.postLikes}
+                        userId={currentUser.id}
+                        postLikeStatus={postLikeStatus}
+                        setPostLikeStatus={setPostLikeStatus} 
+                    />
                 )}
                 <button className="post-comment-btn">Comment</button>
                 <button className="post-return-btn" onClick={() => {

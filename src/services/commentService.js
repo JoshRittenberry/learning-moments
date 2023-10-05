@@ -12,7 +12,7 @@ export const getCommentLikesByCommentId = (commentId) => {
 
 export const updateCommentLikes = (commentId, userId) => {
     
-    getAllCommentLikes().then(data => {
+    return getAllCommentLikes().then(data => {
         const allCommentsLikes = data
 
         // Finds a commentLike object that matches the commentId and userId, if it doesn't find one it is null

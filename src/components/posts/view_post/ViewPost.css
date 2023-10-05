@@ -31,6 +31,7 @@
 
 .creator-profile-picture img {
     display: block;
+    margin: auto;
     border-radius: 10px;
     width: 50%;
 }

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { createNewPost } from "../../services/postService"
+import { createNewPost } from "../../../services/postService"
 
 export const CreatePostSaveBtn = ({ postValues, setPostValues }) => {
     const navigate = useNavigate()

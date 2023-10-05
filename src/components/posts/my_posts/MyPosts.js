@@ -1,9 +1,9 @@
 import "./MyPosts.css"
 import { useEffect, useState } from "react"
-import { Post } from "./Post"
-import { getAllUserPosts } from "../../services/postService"
-import { PostFilter } from "./PostFilter"
-import { PostSeach } from "./PostSearch"
+import { Post } from "../Post"
+import { getAllUserPosts } from "../../../services/postService"
+import { PostFilter } from "../PostFilter"
+import { PostSeach } from "../PostSearch"
 
 export const MyPosts = ({ currentUser }) => {
     const [myPosts, setMyPosts] = useState([])

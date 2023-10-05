@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "./CreatePost.css"
-import { PostTopicDropdown } from "./PostTopicDropdown"
-import { useNavigate, useParams } from "react-router-dom"
-import { getPostById } from "../../services/postService"
-import { EditPostSaveBtn } from "./EditPostSaveBtn"
+import { PostTopicDropdown } from "../PostTopicDropdown"
+import { CreatePostSaveBtn } from "./CreatePostSaveBtn"
+import { useNavigate } from "react-router-dom"
 
-export const EditPost = ({ currentUser }) => {
-    const [post, setPost] = useState({})
+export const CreatePost = ({ currentUser }) => {
     const [postValues, setPostValues] = useState({
         userId: currentUser.id,
         topicId: 0,
@@ -15,30 +13,13 @@ export const EditPost = ({ currentUser }) => {
         date: ""
     })
 
-    const {postId} = useParams()
     const navigate = useNavigate()
-
-    useEffect(() => {
-        getPostById(postId).then(data => {
-            const postObj = data[0]
-            setPost(postObj)
-        })
-    }, [postId])
-
-    useEffect(() => {
-        const copy = {...postValues}
-        copy.topicId = post.topicId
-        copy.title = post.title
-        copy.body = post.body
-        copy.date = post.date
-        setPostValues(copy)
-    }, [post])
 
     return (
         <div className="new-post-container">
             {/* New Post Header */}
             <header className="new-post-header">
-                <h1>Edit Post</h1>
+                <h1>Create A New Post</h1>
             </header>
 
             {/* New Post Main Section */}
@@ -54,7 +35,7 @@ export const EditPost = ({ currentUser }) => {
                             type="text"
                             placeholder="Post Title"
                             required
-                            value={postValues?.title}
+                            value={postValues.title}
                             onChange={(event) => {
                                 const copy = { ...postValues }
                                 copy.title = event.target.value
@@ -73,7 +54,7 @@ export const EditPost = ({ currentUser }) => {
                             type="text"
                             placeholder="Post Body"
                             required
-                            value={postValues?.body}
+                            value={postValues.body}
                             onChange={(event) => {
                                 const copy = { ...postValues }
                                 copy.body = event.target.value
@@ -82,13 +63,13 @@ export const EditPost = ({ currentUser }) => {
                         />
                     </div>
                 </form>
-
+                
 
                 {/* New Post Footer/Buttons */}
                 <footer className="post-creator-bottom">
-                    <EditPostSaveBtn postValues={postValues} setPostValues={setPostValues} postId={postId}/>
+                    <CreatePostSaveBtn postValues={postValues} setPostValues={setPostValues} />
                     <button className="post-cancel-btn" onClick={() => {
-                        navigate("/my_posts")
+                        navigate("/")
                     }}>Cancel</button>
                 </footer>
 

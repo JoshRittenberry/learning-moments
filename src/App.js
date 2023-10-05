@@ -3,7 +3,7 @@ import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
-import { AllPosts } from "./components/posts/AllPosts"
+import { AllPosts } from "./components/posts/all_posts/AllPosts"
 
 export const App = () => {
   return (

@@ -19,3 +19,21 @@ export const createUser = (user) => {
     body: JSON.stringify(user),
   }).then((res) => res.json())
 }
+
+export const editUser = (userObj, userId) => {
+  return fetch(`http://localhost:8088/users/${userId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      firstName: userObj.firstName,
+      lastName: userObj.lastName,
+      email: userObj.email,
+      cohort: userObj.cohort,
+      pictureUrl: userObj.pictureUrl
+    }),
+  }).then(() => {
+    console.log(`user #${userId} Updated`)
+  })
+}

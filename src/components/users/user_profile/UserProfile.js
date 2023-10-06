@@ -2,7 +2,7 @@ import "./UserProfile.css"
 import { useEffect, useState } from "react"
 import { Post } from "../../posts/Post"
 import { getAllUserPosts } from "../../../services/postService"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getUserById } from "../../../services/userService"
 
 export const UserProfile = ({ currentUser }) => {
@@ -10,6 +10,8 @@ export const UserProfile = ({ currentUser }) => {
     const [showPosts, setShowPosts] = useState([])
     const [userIsCurrentUser, setUserIsCurrentUser] = useState(false)
     const {userId} = useParams()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         getUserById(userId).then(userObj => {
@@ -44,7 +46,7 @@ export const UserProfile = ({ currentUser }) => {
                 </div>
                 {userIsCurrentUser && (
                     <div className="profile-footer">
-                        <button className="edit-profile-btn">Edit Profile</button>
+                        <button className="edit-profile-btn" onClick={() => {navigate("/edit_profile")}}>Edit Profile</button>
                     </div>
                 )}
             </div>

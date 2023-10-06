@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { getPostById, getPostLikesByPostId } from "../../../services/postService"
 import "./ViewPost.css"
-import { GetPostComments } from "../GetPostComments"
+import { GetPostComments } from "../../comments/GetPostComments"
 import { PostLikeButton } from "../PostLikeButton"
 
 export const ViewPost = ({ currentUser }) => {

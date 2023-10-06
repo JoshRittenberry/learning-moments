@@ -1,81 +1,90 @@
 .new-post-container {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 1000px;
-    margin: auto;
+    width: 70%;
+    /* Set to whatever suits your layout */
+    margin: 2rem auto;
+    /* Centering and giving some vertical space */
+    background-color: #f5f5f5;
+    /* Light grey background */
+    border-radius: 10px;
+    /* Rounded edges */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    /* Slight shadow for depth */
+    padding: 2rem;
 }
 
-.new-post-header h1 {
-    font-size: 2.5em;
-    color: #333;
+.new-post-header {
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-.new-post-main {
-    background-color: #fff;
-    border-radius: 6px;
-    padding: 15px;
-    margin: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.post-creator-top,
-.post-creator-middle,
-.post-creator-bottom {
+.post-creator-top {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .post-title {
-    width: calc(100% - 22px);
-    /* -22px to compensate for padding */
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
+    flex: 3;
+    /* Makes the input take more space than the dropdown */
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-.post-title::placeholder {
-    color: #aaa;
+.dropdown {
+    margin-left: 20px;
 }
 
-.post-creator-top button {
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+.post-creator-middle {
+    margin-bottom: 1.5rem;
 }
 
 .post-body {
     width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    height: 200px;
+    /* Set to a suitable initial height for your content */
     resize: vertical;
-    /* Allows vertical resizing of the textarea */
+    /* Allows users to resize vertically only */
 }
 
-.post-body::placeholder {
-    color: #aaa;
+.post-creator-bottom {
+    display: flex;
+    justify-content: space-around;
+    /* Aligns buttons to the right */
+    gap: 1rem;
+    /* Space between buttons */
 }
 
-.post-creator-bottom button {
-    background-color: #5cb85c;
-    color: white;
+.post-save-btn {
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #FFC107;
+    color: #ffffff;
     cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.post-creator-bottom button:last-child {
-    background-color: #d9534f;
-    /* Different color for the cancel button, adjust as needed */
+.post-save-btn:hover {
+    background-color: #385F7C;
+}
+
+.post-cancel-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #f44336;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-cancel-btn:hover {
+    background-color: #d32f2f;
 }

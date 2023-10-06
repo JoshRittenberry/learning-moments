@@ -5,7 +5,7 @@ export const EditPostSaveBtn = ({ postValues, setPostValues, postId }) => {
     const navigate = useNavigate()
 
     return (
-        <button onClick={(event) => {
+        <button className="post-save-btn" onClick={(event) => {
             if (postValues.title === "" || postValues.body === "" || postValues.topicId === 0) {
                 alert("Please fill out all fields!")
                 event.preventDefault()

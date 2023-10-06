@@ -8,8 +8,8 @@ import { CreatePost } from "../components/posts/create_post/CreatePost"
 import { EditPost } from "../components/posts/edit_post/EditPost"
 import { MyPosts } from "../components/posts/my_posts/MyPosts"
 import { Favorites } from "../components/posts/favorites/Favorites"
-import { MyProfile } from "../components/users/my_profile/MyProfile"
 import { UserProfile } from "../components/users/user_profile/UserProfile"
+import { EditProfile } from "../components/users/user_profile/EditProfile"
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({})
@@ -26,7 +26,7 @@ export const ApplicationViews = () => {
                 path="/"
                 element={
                     <>
-                        <NavBar />
+                        <NavBar currentUser={currentUser}/>
                         <Outlet />
                     </>
                 }
@@ -41,10 +41,10 @@ export const ApplicationViews = () => {
                 </Route>
                 <Route path="my_posts" element={<MyPosts currentUser={currentUser} />} />
                 <Route path="favorites" element={<Favorites currentUser={currentUser} />} />
-                <Route path="my_profile" element={<MyProfile currentUser={currentUser} />} />
                 <Route path="user_profile">
-                    <Route path=":userId" element={<UserProfile currentUser={currentUser}/>} />
+                    <Route path=":userId" element={<UserProfile currentUser={currentUser} />} />
                 </Route>
+                <Route path="edit_profile" element={<EditProfile currentUser={currentUser} />} />
             </Route>
         </Routes>
     )

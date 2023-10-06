@@ -10,6 +10,7 @@ export const Register = (props) => {
     email: "",
     cohort: 0,
     password: "",
+    pictureUrl: "",
   })
   let navigate = useNavigate()
 
@@ -105,6 +106,18 @@ export const Register = (props) => {
               id="cohort"
               className="auth-form-input"
               placeholder="Cohort #"
+              required
+            />
+          </div>
+        </fieldset>
+        <fieldset className="auth-fieldset">
+          <div>
+            <input
+              onChange={updateUser}
+              type="text"
+              id="pictureUrl"
+              className="auth-form-input"
+              placeholder="Profile Picture URL"
               required
             />
           </div>

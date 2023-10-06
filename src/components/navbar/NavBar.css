@@ -1,57 +1,48 @@
-/* Navbar Styling */
+/* Base styling for the navbar */
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    /* Equal spacing between each item */
     align-items: center;
-    background-color: #2C3E50;
-    /* Deep Navy */
-    padding: 1rem;
-    box-shadow: 0px 3px 10px 0px rgba(44, 62, 80, 0.2);
-    /* Slight Shadow for depth */
-    font-family: 'Arial', sans-serif;
-    /* Consistent Font Family */
-}
-
-.navbar-item {
+    background-color: #517FA4;
+    /* Instagram blue */
+    padding: 1rem 2rem;
+    /* Padding on top/bottom and left/right */
     list-style-type: none;
-    /* Removes Bullet Points */
+    /* Removes bullet points */
+    margin: 0;
+    /* Remove default margin */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow */
 }
 
+/* Base styling for each navbar item */
+.navbar-item {
+    margin: 0 1rem;
+    /* Spacing between each item */
+}
+
+/* Styling for the links */
 .navbar-item a {
     text-decoration: none;
-    /* Removes Underline */
-    color: #ECF0F1;
-    /* Off-White */
-    font-size: 1.1rem;
-    /* Consistent Font Size */
-    font-weight: 600;
-    /* Semi-Bold Font */
+    /* Removes the default underline */
+    color: #FFFFFF;
+    /* White text color for contrast */
+    font-family: 'Arial', sans-serif;
+    /* Using Arial as the font, but this can be changed */
+    font-size: 1rem;
     padding: 0.5rem 1rem;
-    /* Vertical & Horizontal Padding */
-    border-radius: 5px;
-    /* Rounded Corners */
-    transition: background-color 0.3s ease-in-out;
-    /* Smooth Transition */
+    /* Padding for clickable area and visual appeal */
+    border-radius: 8px;
+    /* Slight rounding of corners */
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition for hover effects */
 }
 
+/* Hover effect for the links */
 .navbar-item a:hover {
-    background-color: #ECF0F1;
-    /* Off-White */
-    color: #2C3E50;
-    /* Deep Navy */
-}
-
-/* Specific styling for the Logout link as it does not have the 'navbar-item' class */
-.navbar li:last-child a {
-    background-color: #E74C3C;
-    /* Red */
-    color: #ECF0F1;
-    /* Off-White */
-}
-
-.navbar li:last-child a:hover {
-    background-color: #ECF0F1;
-    /* Off-White */
-    color: #E74C3C;
-    /* Red */
+    background-color: #385F7C;
+    /* A slightly darker shade for hover */
+    color: #FED330;
+    /* Instagram gold/yellow for a fun pop of color */
 }

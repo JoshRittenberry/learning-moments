@@ -1,126 +1,123 @@
-/* Container Style */
 .view-post-container {
-    width: 80%;
-    margin: auto;
-    background-color: #ffffff;
-    padding: 10px;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f5f5f5;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Header Style */
-.post-header h1 {
+.post-header {
     text-align: center;
-    color: #333333;
-    font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
-/* Main Section Style */
 .post-main {
     display: flex;
-    justify-content: space-between;
+    gap: 2rem;
 }
 
-.post-creator-container,
-.post-body-container,
-.post-comments-container {
-    width: 30%;
-    padding: 10px;
+.post-creator-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .creator-profile-picture img {
-    display: block;
-    margin: auto;
-    border-radius: 10px;
-    width: 50%;
-}
-
-/* If you want the width of post-body-container to be larger, you can adjust the width of these containers. */
-
-.post-creator-container h3,
-.post-creator-container h4 {
-    margin-bottom: 5px;
-    color: #666666;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .post-body-container {
-    color: #444444;
-    text-align: justify;
+    flex: 3;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
 }
 
 .post-comments-container {
-    overflow-y: auto;
-    max-height: 500px;
-    /* You can adjust this value as needed */
-}
-
-/* Comment Style */
-.comment-container {
+    margin-top: 2rem;
     border-top: 1px solid #e0e0e0;
-    padding-top: 10px;
+    padding-top: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
-.comment-header,
-.comment-main {
+.comment-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.comment-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .comment-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .comment-like-btn {
     background: none;
     border: none;
+    cursor: pointer;
 }
 
-.comment-creator,
-.comment-date,
-.comment-body {
-    color: #555555;
+.fa-regular,
+.fa-solid {
+    font-size: 20px;
+    margin-right: 0.5rem;
 }
 
-/* Footer Style */
 .post-footer {
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
 }
 
-/* Button Styles */
 .post-edit-btn,
-.pst-like-btn,
-.post-comment-btn, 
+.post-comment-btn,
 .post-return-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    /* Adjust this color to match the Navbar */
-    color: #FFFFFF;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    background-color: #FFC107;
+    color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .post-edit-btn:hover,
-.pst-like-btn:hover,
 .post-comment-btn:hover,
 .post-return-btn:hover {
-    background-color: #45a049;
+    background-color: #385F7C;
 }
 
-/* Additional Responsive Style */
-@media (max-width: 960px) {
-    .post-main {
-        flex-direction: column;
-    }
+.pst-like-btn,
+.comment-like-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFC107;
+    transition: color 0.3s ease;
+}
 
-    .post-creator-container,
-    .post-body-container,
-    .post-comments-container {
-        width: 100%;
-    }
+.pst-like-btn:hover,
+.comment-like-btn:hover {
+    color: #385F7C;
 }

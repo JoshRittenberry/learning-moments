@@ -50,10 +50,14 @@ export const ViewPost = ({ currentUser }) => {
                     <div className="creator-profile-picture">
                         <img src={post.user?.pictureUrl}></img>
                     </div>
+
                     <h3>{post.user?.firstName} {post.user?.lastName}</h3>
-                    <h5>Topic: {post.topic?.name}</h5>
-                    <h5>Date Posted: {post.date}</h5>
-                    <h5>Total Post Likes: {postLikesAmount}</h5>
+
+                    <div className="creator-profile-stats">
+                        <h5>Topic: {post.topic?.name}</h5>
+                        <h5>Date Posted: {post.date}</h5>
+                        <h5>Total Post Likes: {postLikesAmount}</h5>
+                    </div>
                 </div>
 
                 {/* Post Body */}

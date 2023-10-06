@@ -1,130 +1,100 @@
-Base Styling
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-/* Container Styling */
 .posts-container {
-    width: 70%;
-    margin: auto;
-    overflow: hidden;
-}
-
-/* Header Styling */
-.posts-header {
-    background: #45a049;
-    color: white;
-    padding: 10px 20px;
-    text-align: left;
-    box-shadow: 0px 4px 2px -2px gray;
     display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.posts-header {
+    width: 80%;
+    display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
-.posts-header h1 {
-    display: inline-block;
-    margin: 0;
-    font-size: 24px;
-}
-
-/* Search Bar Styling */
-.post-search-bar {
-    flex-grow: 2;
-    margin-left: 20px;
-}
-
-.post-search {
+.post-search-bar input {
     width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 25px;
+    border: 1px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-/* Main Filter Toggle Button Styling */
-.posts-header .post-filter {
-    background-color: #50b3a2;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+.post-search-bar input:focus {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
 
-.posts-header .post-filter:hover {
-    background-color: #45a049;
+.post-search-bar input:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Filters List Container */
-.collapse {
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Individual Filter Button Styling */
-.collapse button {
-    background-color: inherit;
-    color: black;
-    padding: 12px 16px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.collapse button:hover {
-    background-color: #ddd;
-}
-
-/* Article & Post Styling */
-article.posts {
-    padding: 20px;
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
 }
 
 .post-preview {
-    background: #ffffff;
-    padding: 20px;
+    width: 600px;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 2px 2px 12px #aaa;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .post-profile-preview {
-    width: 100px;
-    float: left;
-    margin: 10px;
-    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-content {
+    flex: 1;
 }
 
 .post-preview-header {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
-.post-preview-header div {
+.post-preview-header>div:first-child {
     display: flex;
-}
-
-.post h5 {
-    font-size: 24px;
-}
-
-.post h6 {
-    font-size: 16px;
-    color: #666;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .post-like-btn-main {
     background: none;
     border: none;
-    color: #4CAF50;
-    padding-bottom: 10px;
-    margin-right: 5px
+    padding: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFC107;
+    transition: color 0.3s ease;
 }
 
 .post-like-btn-main:hover {
-    color: #45a049;
+    color: #385F7C;
+}
+
+@media (max-width: 768px) {
+
+    .posts-header,
+    .posts {
+        width: 100%;
+    }
+
+    .post-preview {
+        flex-direction: column;
+    }
 }

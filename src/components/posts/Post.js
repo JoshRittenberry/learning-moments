@@ -40,6 +40,9 @@ export const Post = ({ post, currentUserId, setPostLikesArray, userId }) => {
             <div className="post-content">
                 <div className="post-preview-header">
                     <div>
+                        <Link to={`/view_post/${post.id}`}>
+                            <h5>{post.title}</h5>
+                        </Link>
                         {postLikeStatus && (
                             <button className="post-like-btn-main" onClick={() => {
                                 updatePostLikes(post.id, currentUserId).then(() => {
@@ -55,9 +58,6 @@ export const Post = ({ post, currentUserId, setPostLikesArray, userId }) => {
                                 <i className="fa-solid fa-heart"></i>
                             </button>
                         )}
-                        <Link to={`/view_post/${post.id}`}>
-                            <h5>{post.title}</h5>
-                        </Link>
                     </div>
                     {isMyPost && <MyPostsOptions post={post} />}
                 </div>
